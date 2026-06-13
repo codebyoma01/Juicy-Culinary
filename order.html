@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order a Cake — Juicy Culinary</title>
+  <meta name="description" content="Order a custom luxury cake from Juicy Culinary. Birthday cakes, wedding cakes, cupcakes and more. Delivered across Abuja, Nigeria." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-name">Juicy Culinary</span>
+    <span class="nav-logo-tagline">Abuja · Since 2020</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="contact.html" class="nav-link">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="dark-toggle" aria-label="Toggle dark mode"></button>
+    <a href="order.html" class="btn btn-primary">Order Now</a>
+    <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-overlay"></div>
+<div class="mobile-menu">
+  <a href="index.html" class="mobile-menu-link">Home</a>
+  <a href="gallery.html" class="mobile-menu-link">Gallery</a>
+  <a href="order.html" class="mobile-menu-link">Order a Cake</a>
+  <a href="about.html" class="mobile-menu-link">About Us</a>
+  <a href="contact.html" class="mobile-menu-link">Contact</a>
+  <a href="https://wa.me/2347047214558" class="btn btn-whatsapp" style="margin-top:1rem;">💬 WhatsApp Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="eyebrow reveal">Custom Cake Orders</span>
+  <h1 class="display-lg reveal reveal-delay-1" style="margin-top:0.75rem">
+    Let's Create Your<br><span class="text-gold italic">Dream Cake</span>
+  </h1>
+  <p class="body-lg reveal reveal-delay-2" style="max-width:55ch;margin:1rem auto 0">
+    Fill out the form below to start your order. We'll confirm within 24 hours and walk you through the design process personally.
+  </p>
+</section>
+
+<!-- ORDER SECTION -->
+<section class="order-section">
+  <div class="container">
+    <div class="order-layout">
+
+      <!-- Order Form -->
+      <div class="order-form reveal">
+        <h2 class="display-sm" style="margin-bottom:2rem">Order Details</h2>
+
+        <form data-validate id="order-form">
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label class="form-label" for="o-name">Full Name *</label>
+              <input class="form-control" type="text" id="o-name" name="name" placeholder="e.g. Amaka Obi" required />
+              <span class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="o-phone">Phone Number *</label>
+              <input class="form-control" type="tel" id="o-phone" name="phone" placeholder="+234 800 000 0000" required />
+              <span class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="o-email">Email Address *</label>
+              <input class="form-control" type="email" id="o-email" name="email" placeholder="you@example.com" required />
+              <span class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="o-date">Event Date *</label>
+              <input class="form-control" type="date" id="o-date" name="date" required />
+              <span class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="o-type">Cake Type *</label>
+              <select class="form-control" id="o-type" name="cake_type" required>
+                <option value="">Select cake type…</option>
+                <option value="birthday">🎂 Birthday Cake</option>
+                <option value="wedding">💍 Wedding Cake</option>
+                <option value="cupcakes">🧁 Cupcakes</option>
+                <option value="dessertbox">🍫 Dessert Box</option>
+                <option value="anniversary">💕 Anniversary Cake</option>
+                <option value="babyshower">🍼 Baby Shower Cake</option>
+                <option value="custom">✨ Custom / Other</option>
+              </select>
+              <span class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="o-size">Cake Size *</label>
+              <select class="form-control" id="o-size" name="size" required>
+                <option value="">Select size…</option>
+                <option value="small">Small (10–15 people)</option>
+                <option value="medium">Medium (20–30 people)</option>
+                <option value="large">Large (40–60 people)</option>
+                <option value="xl">XL (80–100+ people)</option>
+              </select>
+              <span class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="o-flavor">Flavor *</label>
+              <select class="form-control" id="o-flavor" name="flavor" required>
+                <option value="">Select flavor…</option>
+                <option value="vanilla">Classic Vanilla</option>
+                <option value="chocolate">Rich Chocolate</option>
+                <option value="redvelvet">Red Velvet</option>
+                <option value="lemon">Lemon Zest</option>
+                <option value="strawberry">Strawberry</option>
+                <option value="caramel">Salted Caramel</option>
+                <option value="marble">Marble (Choc + Vanilla)</option>
+                <option value="other">Other (specify in notes)</option>
+              </select>
+              <span class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="o-budget">Budget Range</label>
+              <select class="form-control" id="o-budget" name="budget">
+                <option value="">Select budget…</option>
+                <option value="under30">Under ₦30,000</option>
+                <option value="30-70">₦30,000 – ₦70,000</option>
+                <option value="70-150">₦70,000 – ₦150,000</option>
+                <option value="150+">₦150,000+</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label" for="o-address">Delivery Address *</label>
+              <input class="form-control" type="text" id="o-address" name="address" placeholder="Street, Area, Abuja (or specify pickup)" required />
+              <span class="form-error"></span>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label" for="o-notes">Additional Notes / Design Description</label>
+              <textarea class="form-control" id="o-notes" name="notes" placeholder="Describe your vision — colors, theme, any text on the cake, inspirations, dietary needs…"></textarea>
+            </div>
+
+            <!-- File Upload -->
+            <div class="form-group full-width">
+              <label class="form-label">Inspiration Image (optional)</label>
+              <div class="file-upload">
+                <input type="file" accept="image/*" aria-label="Upload inspiration image" />
+                <div class="file-upload-icon">🖼️</div>
+                <div class="file-upload-text">
+                  <strong>Click to upload</strong> or drag & drop<br>
+                  PNG, JPG, WEBP up to 10MB
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-submit-wrap">
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1.1rem">
+              ✨ Submit My Order Request
+            </button>
+            <p style="font-size:0.78rem;color:var(--text-secondary);text-align:center;margin-top:0.75rem">
+              We'll confirm your order via WhatsApp or email within 24 hours.
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="order-sidebar">
+        <!-- Mini Price Estimator -->
+        <div class="order-estimator-mini reveal reveal-delay-1">
+          <span class="eyebrow" style="display:block;margin-bottom:1rem">Price Estimate</span>
+          <div class="estimator-field" style="margin-bottom:1rem">
+            <label for="est-type" style="font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-secondary);display:block;margin-bottom:0.5rem">Cake Type</label>
+            <select id="est-type">
+              <option value="birthday">Birthday Cake</option>
+              <option value="wedding">Wedding Cake</option>
+              <option value="cupcakes">Cupcakes</option>
+              <option value="dessertbox">Dessert Box</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+          <div class="estimator-field" style="margin-bottom:1.25rem">
+            <label for="est-size" style="font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-secondary);display:block;margin-bottom:0.5rem">Size</label>
+            <select id="est-size">
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+              <option value="xl">XL</option>
+            </select>
+          </div>
+          <div class="estimator-result">
+            <div class="estimator-price" id="est-price">₦20,000</div>
+            <div class="estimator-price-label">Starting From</div>
+          </div>
+        </div>
+
+        <!-- Info Card -->
+        <div class="order-info-card reveal reveal-delay-2">
+          <span class="eyebrow" style="display:block;margin-bottom:1rem">Good to Know</span>
+
+          <div class="order-info-item">
+            <div class="order-info-icon">⏰</div>
+            <div class="order-info-text">
+              <strong>Order Lead Time</strong>
+              Minimum 5–7 days for standard orders. Wedding cakes require 3+ weeks notice.
+            </div>
+          </div>
+
+          <div class="order-info-item">
+            <div class="order-info-icon">💳</div>
+            <div class="order-info-text">
+              <strong>Payment</strong>
+              50% deposit required to confirm. Balance due on delivery or pickup.
+            </div>
+          </div>
+
+          <div class="order-info-item">
+            <div class="order-info-icon">🚚</div>
+            <div class="order-info-text">
+              <strong>Delivery</strong>
+              We deliver across Abuja FCT. Delivery fee calculated based on location.
+            </div>
+          </div>
+
+          <div class="order-info-item">
+            <div class="order-info-icon">📞</div>
+            <div class="order-info-text">
+              <strong>Questions?</strong>
+              Chat with us directly on WhatsApp for faster response.
+            </div>
+          </div>
+
+          <a href="https://wa.me/2347047214558?text=Hi! I want to place a cake order" target="_blank" class="btn btn-whatsapp" style="width:100%;justify-content:center;margin-top:0.5rem">
+            💬 Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Success Modal -->
+<div class="success-modal" role="dialog" aria-modal="true" aria-label="Order submitted">
+  <div class="success-modal-card">
+    <div class="success-modal-icon">🎂</div>
+    <h2 class="success-modal-title display-sm">Order Received!</h2>
+    <p class="body-md" style="max-width:35ch;margin:0 auto 1.5rem">
+      Thank you for your order request! We'll reach out via WhatsApp or email within 24 hours to confirm your cake details.
+    </p>
+    <button class="btn btn-primary success-modal-close" style="width:100%;justify-content:center">
+      Perfect, Thank You!
+    </button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Juicy Culinary</div>
+        <p class="footer-brand-desc">New age baker where baking meets perfection ❤️<br>Federal Capital Territory, Abuja.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/juicy__culinary" target="_blank" aria-label="Instagram">📸</a>
+          <a href="https://wa.me/2347047214558" target="_blank" aria-label="WhatsApp">💬</a>
+          <a href="mailto:hello@juicyculinary.com" aria-label="Email">✉️</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="order.html">Order a Cake</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Services</div>
+        <ul class="footer-links">
+          <li><a href="gallery.html">Birthday Cakes</a></li>
+          <li><a href="gallery.html">Wedding Cakes</a></li>
+          <li><a href="gallery.html">Cupcakes</a></li>
+          <li><a href="gallery.html">Dessert Boxes</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/2347047214558">+234 704 721 4558</a></li>
+          <li><a href="https://instagram.com/juicy__culinary">@juicy__culinary</a></li>
+          <li><span style="color:rgba(255,255,255,0.5)">Abuja, FCT Nigeria</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Juicy Culinary. All rights reserved.</span>
+      <span>Crafted with ❤️ in Abuja, Nigeria</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">↑</button>
+<script src="js/script.js"></script>
+</body>
+</html>
