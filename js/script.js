@@ -1,36 +1,59 @@
-/* ============================================================
-   JUICY CULINARY — script.js
-   Features: Dark mode, mobile menu, scroll animations,
-   lightbox, form validation, back-to-top, price estimator
-   ============================================================ */
+/**
+ * JUICY CULINARY — script.js
+ * Features: dark mode, nav, mobile menu, scroll reveal,
+ *           lightbox, gallery filter, price estimator,
+ *           form validation, file upload, back-to-top
+ */
 
-/* ---- Dark Mode ---- */
-const initDarkMode = () => {
+'use strict';
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+function initDarkMode() {
   const toggles = document.querySelectorAll('.dark-toggle');
   const saved = localStorage.getItem('jc-theme') || 'light';
   document.documentElement.setAttribute('data-theme', saved);
 
-  toggles.forEach(t => {
-    t.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
+  toggles.forEach(toggle => {
+    toggle.setAttribute('aria-label', 'Toggle dark mode');
+    toggle.addEventListener('click', () => {
+      const curr = document.documentElement.getAttribute('data-theme');
+      const next = curr === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('jc-theme', next);
     });
   });
-};
+}
 
-/* ---- Navbar scroll ---- */
-const initNavScroll = () => {
+/* ============================================================
+   NAVIGATION — scroll state + active link
+   ============================================================ */
+function initNav() {
   const nav = document.querySelector('.nav');
   if (!nav) return;
-  const handler = () => nav.classList.toggle('scrolled', window.scrollY > 60);
-  window.addEventListener('scroll', handler, { passive: true });
-  handler();
-};
 
-/* ---- Mobile Menu ---- */
-const initMobileMenu = () => {
+  // Scroll state
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mark active link
+  const current = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === current || (current === '' && href === 'index.html')) {
+      link.classList.add('active');
+    }
+  });
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+function initMobileMenu() {
   const hamburger = document.querySelector('.hamburger');
   const menu = document.querySelector('.mobile-menu');
   const overlay = document.querySelector('.mobile-overlay');
@@ -38,12 +61,15 @@ const initMobileMenu = () => {
 
   const open = () => {
     hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
     menu.classList.add('open');
     overlay?.classList.add('open');
     document.body.style.overflow = 'hidden';
   };
+
   const close = () => {
     hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
     menu.classList.remove('open');
     overlay?.classList.remove('open');
     document.body.style.overflow = '';
@@ -52,224 +78,366 @@ const initMobileMenu = () => {
   hamburger.addEventListener('click', () =>
     menu.classList.contains('open') ? close() : open()
   );
+
   overlay?.addEventListener('click', close);
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
-};
 
-/* ---- Scroll Reveal ---- */
-const initScrollReveal = () => {
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) close();
+  });
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+function initScrollReveal() {
   const els = document.querySelectorAll('.reveal');
   if (!els.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-  els.forEach(el => observer.observe(el));
-};
+  els.forEach(el => io.observe(el));
+}
 
-/* ---- Back to Top ---- */
-const initBackToTop = () => {
-  const btn = document.querySelector('.back-to-top');
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+function initBackTop() {
+  const btn = document.querySelector('.back-top');
   if (!btn) return;
+
   window.addEventListener('scroll', () => {
-    btn.classList.toggle('visible', window.scrollY > 500);
+    btn.classList.toggle('visible', window.scrollY > 600);
   }, { passive: true });
-  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ============================================================
+   PRICE ESTIMATOR
+   ============================================================ */
+const PRICE_TABLE = {
+  birthday:    { small: 20000,  medium: 35000,  large: 55000,  xl: 80000  },
+  wedding:     { small: 80000,  medium: 130000, large: 200000, xl: 280000 },
+  celebration: { small: 25000,  medium: 45000,  large: 70000,  xl: 100000 },
+  corporate:   { small: 35000,  medium: 60000,  large: 90000,  xl: 140000 },
+  cupcakes:    { small: 8000,   medium: 15000,  large: 28000,  xl: 45000  },
+  dessertbox:  { small: 15000,  medium: 28000,  large: 45000,  xl: 65000  },
 };
 
-/* ---- Lightbox ---- */
-const initLightbox = () => {
-  const lightbox = document.querySelector('.lightbox');
-  if (!lightbox) return;
+function fmtNaira(n) {
+  return '₦' + n.toLocaleString('en-NG');
+}
 
-  const img = lightbox.querySelector('img');
-  const closeBtn = lightbox.querySelector('.lightbox-close');
-  const prevBtn = lightbox.querySelector('.lightbox-prev');
-  const nextBtn = lightbox.querySelector('.lightbox-next');
+function initEstimator() {
+  // Runs for both homepage estimator and order page sidebar estimator
+  document.querySelectorAll('[data-estimator]').forEach(wrapper => {
+    const typeEl  = wrapper.querySelector('[data-est-type]');
+    const sizeEl  = wrapper.querySelector('[data-est-size]');
+    const priceEl = wrapper.querySelector('[data-est-price]');
+    if (!typeEl || !sizeEl || !priceEl) return;
 
-  let items = [];
-  let currentIndex = 0;
+    const update = () => {
+      const type = typeEl.value;
+      const size = sizeEl.value;
+      const price = PRICE_TABLE[type]?.[size];
+      if (!price) return;
 
-  const openLightbox = (src, index) => {
-    img.src = src;
-    currentIndex = index;
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  };
-  const closeLightbox = () => {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-  };
-  const showNext = () => {
-    currentIndex = (currentIndex + 1) % items.length;
-    img.src = items[currentIndex];
-  };
-  const showPrev = () => {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    img.src = items[currentIndex];
-  };
+      priceEl.style.opacity = '0';
+      priceEl.style.transform = 'translateY(5px)';
 
-  document.querySelectorAll('[data-lightbox]').forEach((el, i) => {
-    items.push(el.getAttribute('data-lightbox') || el.src || el.querySelector('img')?.src);
-    el.addEventListener('click', () => openLightbox(items[i], i));
+      setTimeout(() => {
+        priceEl.textContent = fmtNaira(price);
+        priceEl.style.opacity = '1';
+        priceEl.style.transform = 'translateY(0)';
+      }, 150);
+    };
+
+    priceEl.style.transition = 'opacity 0.25s, transform 0.25s';
+    typeEl.addEventListener('change', update);
+    sizeEl.addEventListener('change', update);
+    update();
   });
+}
 
-  closeBtn?.addEventListener('click', closeLightbox);
-  prevBtn?.addEventListener('click', showPrev);
-  nextBtn?.addEventListener('click', showNext);
-  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', e => {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-  });
-};
-
-/* ---- Gallery Filter ---- */
-const initGalleryFilter = () => {
+/* ============================================================
+   GALLERY FILTER
+   ============================================================ */
+function initGalleryFilter() {
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const items = document.querySelectorAll('.masonry-item');
+  const items = document.querySelectorAll('.gallery-item');
+  const countEl = document.querySelector('.gallery-count');
+  const emptyEl = document.querySelector('.gallery-empty');
   if (!filterBtns.length) return;
+
+  function applyFilter(filter) {
+    let visible = 0;
+
+    items.forEach(item => {
+      const cat = item.getAttribute('data-category');
+      const show = filter === 'all' || cat === filter;
+
+      if (show) {
+        item.style.display = '';
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.97)';
+        requestAnimationFrame(() => {
+          item.style.transition = 'opacity 0.35s, transform 0.35s';
+          item.style.opacity = '1';
+          item.style.transform = 'scale(1)';
+        });
+        visible++;
+      } else {
+        item.style.transition = 'opacity 0.2s, transform 0.2s';
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.96)';
+        setTimeout(() => { item.style.display = 'none'; }, 220);
+      }
+    });
+
+    if (countEl) countEl.textContent = visible + ' pieces';
+    if (emptyEl) emptyEl.classList.toggle('visible', visible === 0);
+  }
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const filter = btn.getAttribute('data-filter');
-
-      items.forEach(item => {
-        const category = item.getAttribute('data-category');
-        const show = filter === 'all' || category === filter;
-        item.style.opacity = show ? '1' : '0';
-        item.style.transform = show ? 'scale(1)' : 'scale(0.95)';
-        item.style.pointerEvents = show ? 'all' : 'none';
-        item.style.transition = 'opacity 0.35s, transform 0.35s';
-        setTimeout(() => { item.style.display = show ? '' : 'none'; }, show ? 0 : 350);
-        if (show) setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
-      });
+      applyFilter(btn.getAttribute('data-filter'));
     });
   });
-};
 
-/* ---- Price Estimator ---- */
-const PRICES = {
-  birthday:   { small: 20000, medium: 35000, large: 50000, xl: 75000 },
-  wedding:    { small: 80000, medium: 120000, large: 180000, xl: 250000 },
-  cupcakes:   { small: 8000, medium: 15000, large: 25000, xl: 40000 },
-  dessertbox: { small: 15000, medium: 25000, large: 40000, xl: 60000 },
-  custom:     { small: 30000, medium: 55000, large: 90000, xl: 150000 },
-};
+  // Init count
+  if (countEl) countEl.textContent = items.length + ' pieces';
+}
 
-const fmt = (n) => '₦' + n.toLocaleString('en-NG');
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
+function initLightbox() {
+  const lb = document.querySelector('.lightbox');
+  if (!lb) return;
 
-const initEstimator = () => {
-  const typeEl = document.querySelector('#est-type');
-  const sizeEl = document.querySelector('#est-size');
-  const priceEl = document.querySelector('#est-price');
-  if (!typeEl || !sizeEl || !priceEl) return;
+  const imgEl   = lb.querySelector('.lightbox-img');
+  const closeEl = lb.querySelector('.lb-close');
+  const prevEl  = lb.querySelector('.lb-prev');
+  const nextEl  = lb.querySelector('.lb-next');
+  const caption = lb.querySelector('.lb-caption');
 
-  const update = () => {
-    const type = typeEl.value;
-    const size = sizeEl.value;
-    const price = PRICES[type]?.[size];
-    if (price) {
-      priceEl.textContent = fmt(price);
-      priceEl.style.transform = 'scale(1.05)';
-      setTimeout(() => priceEl.style.transform = 'scale(1)', 200);
-    }
-  };
+  let items = [];
+  let current = 0;
 
-  typeEl.addEventListener('change', update);
-  sizeEl.addEventListener('change', update);
-  update();
-};
+  function open(index) {
+    current = index;
+    imgEl.src = items[current].src;
+    imgEl.alt = items[current].alt || '';
+    if (caption) caption.textContent = items[current].label || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 
-/* ---- Form Validation ---- */
-const validateForm = (form) => {
-  let valid = true;
-  form.querySelectorAll('[required]').forEach(field => {
-    const group = field.closest('.form-group');
-    const errEl = group?.querySelector('.form-error');
-    if (!field.value.trim()) {
-      field.classList.add('error');
-      if (errEl) errEl.textContent = 'This field is required.';
-      valid = false;
-    } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
-      field.classList.add('error');
-      if (errEl) errEl.textContent = 'Please enter a valid email.';
-      valid = false;
-    } else {
-      field.classList.remove('error');
-      if (errEl) errEl.textContent = '';
-    }
-    field.addEventListener('input', () => {
-      field.classList.remove('error');
-      if (errEl) errEl.textContent = '';
-    }, { once: true });
+  function close() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { imgEl.src = ''; }, 300);
+  }
+
+  function showPrev() {
+    current = (current - 1 + items.length) % items.length;
+    imgEl.style.opacity = '0';
+    setTimeout(() => {
+      imgEl.src = items[current].src;
+      if (caption) caption.textContent = items[current].label || '';
+      imgEl.style.opacity = '1';
+    }, 150);
+  }
+
+  function showNext() {
+    current = (current + 1) % items.length;
+    imgEl.style.opacity = '0';
+    setTimeout(() => {
+      imgEl.src = items[current].src;
+      if (caption) caption.textContent = items[current].label || '';
+      imgEl.style.opacity = '1';
+    }, 150);
+  }
+
+  imgEl.style.transition = 'opacity 0.15s';
+
+  // Collect all gallery items
+  document.querySelectorAll('[data-lb]').forEach((el, i) => {
+    items.push({
+      src:   el.getAttribute('data-lb'),
+      alt:   el.getAttribute('data-lb-alt') || '',
+      label: el.getAttribute('data-lb-label') || ''
+    });
+    el.addEventListener('click', () => open(i));
   });
-  return valid;
-};
 
-const initForms = () => {
+  closeEl?.addEventListener('click', close);
+  prevEl?.addEventListener('click', showPrev);
+  nextEl?.addEventListener('click', showNext);
+
+  lb.addEventListener('click', e => {
+    if (e.target === lb) close();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')      close();
+    if (e.key === 'ArrowLeft')   showPrev();
+    if (e.key === 'ArrowRight')  showNext();
+  });
+}
+
+/* ============================================================
+   FORM VALIDATION
+   ============================================================ */
+function validateField(field) {
+  const val = field.value.trim();
+  const group = field.closest('.form-group');
+  const errEl = group?.querySelector('.form-error');
+  let msg = '';
+
+  if (field.required && !val) {
+    msg = 'This field is required.';
+  } else if (field.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+    msg = 'Please enter a valid email address.';
+  } else if (field.type === 'tel' && val && !/^[\d\s\+\-\(\)]{7,}$/.test(val)) {
+    msg = 'Please enter a valid phone number.';
+  }
+
+  field.classList.toggle('error', !!msg);
+  if (errEl) errEl.textContent = msg;
+  return !msg;
+}
+
+function initForms() {
   document.querySelectorAll('form[data-validate]').forEach(form => {
-    form.addEventListener('submit', (e) => {
+    const fields = form.querySelectorAll('input[required], select[required], textarea[required]');
+
+    // Live validation on blur
+    fields.forEach(f => {
+      f.addEventListener('blur', () => validateField(f));
+      f.addEventListener('input', () => {
+        if (f.classList.contains('error')) validateField(f);
+      });
+    });
+
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      if (validateForm(form)) {
-        const modal = document.querySelector('.success-modal');
+      let allValid = true;
+      fields.forEach(f => { if (!validateField(f)) allValid = false; });
+
+      if (allValid) {
+        const modal = document.querySelector('.modal-overlay');
         if (modal) {
           modal.classList.add('open');
-          modal.querySelector('.success-modal-close')?.addEventListener('click', () => {
+          modal.querySelector('.modal-close-btn')?.addEventListener('click', () => {
             modal.classList.remove('open');
-          });
+          }, { once: true });
         }
         form.reset();
+      } else {
+        // Scroll to first error
+        const firstErr = form.querySelector('.form-control.error');
+        firstErr?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstErr?.focus();
       }
     });
   });
-};
+}
 
-/* ---- File Upload Preview ---- */
-const initFileUpload = () => {
-  const area = document.querySelector('.file-upload');
-  const input = document.querySelector('.file-upload input[type="file"]');
-  const text = document.querySelector('.file-upload-text');
-  if (!area || !input) return;
+/* ============================================================
+   FILE UPLOAD — drag & drop + preview
+   ============================================================ */
+function initFileUpload() {
+  document.querySelectorAll('.file-drop').forEach(zone => {
+    const input = zone.querySelector('input[type="file"]');
+    const display = zone.querySelector('.file-name-display');
+    if (!input) return;
 
-  area.addEventListener('click', () => input.click());
-  input.addEventListener('change', () => {
-    const file = input.files[0];
-    if (file && text) text.innerHTML = `<strong>${file.name}</strong> selected ✓`;
+    const setFile = (file) => {
+      if (file && display) {
+        display.textContent = `✓ ${file.name}`;
+        display.style.display = 'block';
+      }
+    };
+
+    input.addEventListener('change', () => setFile(input.files[0]));
+
+    zone.addEventListener('dragover', e => {
+      e.preventDefault();
+      zone.classList.add('dragover');
+    });
+
+    zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+
+    zone.addEventListener('drop', e => {
+      e.preventDefault();
+      zone.classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file) {
+        // Transfer to input
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        input.files = dt.files;
+        setFile(file);
+      }
+    });
   });
-  area.addEventListener('dragover', e => { e.preventDefault(); area.style.borderColor = 'var(--gold)'; });
-  area.addEventListener('dragleave', () => area.style.borderColor = '');
-  area.addEventListener('drop', e => {
-    e.preventDefault();
-    area.style.borderColor = '';
-    const file = e.dataTransfer.files[0];
-    if (file) { input.files = e.dataTransfer.files; if (text) text.innerHTML = `<strong>${file.name}</strong> selected ✓`; }
-  });
-};
+}
 
-/* ---- Active Nav Link ---- */
-const initActiveNav = () => {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === path || (path === '' && href === 'index.html')) {
-      link.classList.add('active');
-    }
-  });
-};
+/* ============================================================
+   ORDER STEPS — track form progress
+   ============================================================ */
+function initOrderSteps() {
+  const steps = document.querySelectorAll('.order-step');
+  if (!steps.length) return;
 
-/* ---- Smooth scroll for anchor links ---- */
-const initSmoothScroll = () => {
+  const sections = document.querySelectorAll('.form-section[data-step]');
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const stepId = entry.target.getAttribute('data-step');
+        steps.forEach((step, i) => {
+          const num = i + 1;
+          step.classList.remove('active', 'done');
+          if (num < +stepId) step.classList.add('done');
+          if (num === +stepId) step.classList.add('active');
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+
+  sections.forEach(s => io.observe(s));
+}
+
+/* ============================================================
+   MARQUEE — duplicate for seamless loop
+   ============================================================ */
+function initMarquee() {
+  const tracks = document.querySelectorAll('.marquee-track');
+  tracks.forEach(track => {
+    // Duplicate content for seamless loop
+    track.innerHTML += track.innerHTML;
+  });
+}
+
+/* ============================================================
+   SMOOTH SCROLL for anchor links
+   ============================================================ */
+function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
@@ -279,20 +447,23 @@ const initSmoothScroll = () => {
       }
     });
   });
-};
+}
 
-/* ---- Init All ---- */
+/* ============================================================
+   INIT ALL
+   ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
   initDarkMode();
-  initNavScroll();
+  initNav();
   initMobileMenu();
   initScrollReveal();
-  initBackToTop();
-  initLightbox();
-  initGalleryFilter();
+  initBackTop();
   initEstimator();
+  initGalleryFilter();
+  initLightbox();
   initForms();
   initFileUpload();
-  initActiveNav();
+  initOrderSteps();
+  initMarquee();
   initSmoothScroll();
 });

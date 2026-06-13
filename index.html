@@ -1,414 +1,545 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juicy Culinary — Premium Cake Artistry, Abuja</title>
-  <meta name="description" content="Luxury custom cakes and desserts crafted for life's most beautiful moments. Serving Abuja, Nigeria." />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juicy Culinary — Custom Luxury Cakes, Abuja</title>
+  <meta name="description" content="Premium custom cakes handcrafted in Abuja, Nigeria. Birthday cakes, wedding cakes, celebration cakes. Order yours today.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- ===== NAVIGATION ===== -->
+<!-- ====================================================
+     NAVIGATION
+     ==================================================== -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo" aria-label="Juicy Culinary Home">
-    <span class="nav-logo-name">Juicy Culinary</span>
-    <span class="nav-logo-tagline">Abuja · Since 2020</span>
+
+  <a href="index.html" class="nav-logo" aria-label="Juicy Culinary — Home">
+   
+    <img src="images/logo-bg.jpg" alt="Juicy Culinary logo" class="nav-logo-img">
+    <div class="nav-logo-text">
+      Juicy Culinary
+      <span>Abuja, Nigeria</span>
+    </div>
   </a>
 
   <ul class="nav-links" role="list">
-    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="index.html"   class="nav-link">Home</a></li>
     <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-    <li><a href="about.html" class="nav-link">About</a></li>
+    <li><a href="about.html"   class="nav-link">About</a></li>
     <li><a href="contact.html" class="nav-link">Contact</a></li>
   </ul>
 
-  <div class="nav-actions">
-    <button class="dark-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode"></button>
-    <a href="order.html" class="btn btn-primary">Order Now</a>
+  <div class="nav-right">
+    <button class="dark-toggle" aria-label="Toggle dark mode"></button>
+    <a href="order.html" class="btn btn-primary">Order a Cake</a>
     <button class="hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- Mobile Menu -->
-<div class="mobile-overlay"></div>
-<div class="mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="index.html" class="mobile-menu-link">Home</a>
+<!-- Mobile overlay + drawer -->
+<div class="mobile-overlay" aria-hidden="true"></div>
+<nav class="mobile-menu" aria-label="Mobile navigation">
+  <a href="index.html"   class="mobile-menu-link">Home</a>
   <a href="gallery.html" class="mobile-menu-link">Gallery</a>
-  <a href="order.html" class="mobile-menu-link">Order a Cake</a>
-  <a href="about.html" class="mobile-menu-link">About Us</a>
+  <a href="order.html"   class="mobile-menu-link">Order a Cake</a>
+  <a href="about.html"   class="mobile-menu-link">About</a>
   <a href="contact.html" class="mobile-menu-link">Contact</a>
-  <a href="https://wa.me/2347047214558" class="btn btn-whatsapp" style="margin-top:1rem;">💬 WhatsApp Us</a>
-</div>
-
-<!-- ===== HERO ===== -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <p class="eyebrow hero-eyebrow reveal">✦ New Age Baker · Abuja, Nigeria</p>
-    <h1 class="display-xl hero-title reveal reveal-delay-1">
-      Where Baking<br>Meets <em>Perfection</em>
-    </h1>
-    <p class="body-lg hero-description reveal reveal-delay-2">
-      Handcrafted luxury cakes designed for weddings, birthdays, and every celebration that deserves something extraordinary.
-    </p>
-    <div class="hero-cta reveal reveal-delay-3">
-      <a href="order.html" class="btn btn-primary">✨ Order Your Cake</a>
-      <a href="gallery.html" class="btn btn-outline">View Gallery</a>
-    </div>
-  </div>
-
-  <div class="hero-image-wrap reveal reveal-delay-2">
-    <img
-      src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800&q=80"
-      alt="Elegant tiered wedding cake"
-      class="hero-img-main"
-    />
-    <div class="hero-badge">
-      <span class="hero-badge-icon">🎂</span>
-      <div class="hero-badge-text">
-        <strong>500+ Cakes Delivered</strong>
-        Across Abuja FCT
-      </div>
-    </div>
-    <div class="hero-badge-2">
-      <strong>★ 5.0</strong>
-      Rating
-    </div>
-  </div>
-</section>
-
-<!-- ===== CATEGORIES ===== -->
-<section class="categories" id="categories">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Our Creations</span>
-      <h2 class="display-md">Crafted for Every<br><span class="text-gold italic">Celebration</span></h2>
-      <div class="section-divider"></div>
-    </div>
-
-    <div class="categories-grid">
-      <div class="category-card reveal">
-        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" alt="Birthday Cakes" loading="lazy" />
-        <div class="category-card-overlay"></div>
-        <div class="category-card-content">
-          <div class="category-card-sub">From ₦20,000</div>
-          <div class="category-card-name">Birthday Cakes</div>
-          <a href="gallery.html" class="category-card-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="category-card reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&q=80" alt="Wedding Cakes" loading="lazy" />
-        <div class="category-card-overlay"></div>
-        <div class="category-card-content">
-          <div class="category-card-sub">From ₦80,000</div>
-          <div class="category-card-name">Wedding Cakes</div>
-          <a href="gallery.html" class="category-card-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="category-card reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600&q=80" alt="Cupcakes" loading="lazy" />
-        <div class="category-card-overlay"></div>
-        <div class="category-card-content">
-          <div class="category-card-sub">From ₦8,000</div>
-          <div class="category-card-name">Cupcakes</div>
-          <a href="gallery.html" class="category-card-link">Explore →</a>
-        </div>
-      </div>
-
-      <div class="category-card reveal reveal-delay-3">
-        <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600&q=80" alt="Dessert Boxes" loading="lazy" />
-        <div class="category-card-overlay"></div>
-        <div class="category-card-content">
-          <div class="category-card-sub">From ₦15,000</div>
-          <div class="category-card-name">Dessert Boxes</div>
-          <a href="gallery.html" class="category-card-link">Explore →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WHY CHOOSE US ===== -->
-<section class="why-us" id="why-us">
-  <div class="container">
-    <div class="why-us-grid">
-      <div class="why-us-image reveal">
-        <img
-          src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=800&q=80"
-          alt="Baker decorating a cake"
-          class="why-us-img"
-        />
-        <div class="why-us-stat">
-          <div class="why-us-stat-num">500+</div>
-          <div class="why-us-stat-label">Happy Clients</div>
-        </div>
-      </div>
-
-      <div class="why-us-content">
-        <div class="reveal">
-          <span class="eyebrow">Why Juicy Culinary</span>
-          <h2 class="display-md" style="margin-top:0.75rem">
-            The Difference is in<br><span class="text-gold italic">Every Detail</span>
-          </h2>
-          <div class="section-divider" style="margin-bottom:2.5rem"></div>
-        </div>
-
-        <div class="why-us-features">
-          <div class="feature-item reveal reveal-delay-1">
-            <div class="feature-icon">🎨</div>
-            <div class="feature-text">
-              <h3>100% Custom Designs</h3>
-              <p class="body-md">Every cake is designed around your vision — your colors, theme, and story brought to life.</p>
-            </div>
-          </div>
-          <div class="feature-item reveal reveal-delay-2">
-            <div class="feature-icon">🌿</div>
-            <div class="feature-text">
-              <h3>Premium Ingredients Only</h3>
-              <p class="body-md">We use the finest imported ingredients — real butter, Belgian chocolate, and natural flavors.</p>
-            </div>
-          </div>
-          <div class="feature-item reveal reveal-delay-3">
-            <div class="feature-icon">🚚</div>
-            <div class="feature-text">
-              <h3>Safe Delivery Across Abuja</h3>
-              <p class="body-md">Temperature-controlled packaging ensures your cake arrives exactly as it left our kitchen.</p>
-            </div>
-          </div>
-          <div class="feature-item reveal reveal-delay-4">
-            <div class="feature-icon">💬</div>
-            <div class="feature-text">
-              <h3>Personal WhatsApp Support</h3>
-              <p class="body-md">Direct access to your baker throughout the order process — no chatbots, just real people.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRICE ESTIMATOR ===== -->
-<section class="estimator" id="estimator">
-  <div class="container">
-    <div class="section-header text-center reveal">
-      <span class="eyebrow">Instant Pricing</span>
-      <h2 class="display-md">Cake Price <span class="text-gold italic">Estimator</span></h2>
-      <p class="body-lg" style="max-width:50ch;margin:1rem auto 0">Get an instant price estimate for your cake. Final pricing depends on design complexity.</p>
-      <div class="section-divider center"></div>
-    </div>
-
-    <div class="estimator-card reveal">
-      <div class="estimator-grid">
-        <div class="estimator-field">
-          <label for="est-type">Cake Type</label>
-          <select id="est-type">
-            <option value="birthday">🎂 Birthday Cake</option>
-            <option value="wedding">💍 Wedding Cake</option>
-            <option value="cupcakes">🧁 Cupcakes (dozen)</option>
-            <option value="dessertbox">🍫 Dessert Box</option>
-            <option value="custom">✨ Custom Cake</option>
-          </select>
-        </div>
-        <div class="estimator-field">
-          <label for="est-size">Size / Serving</label>
-          <select id="est-size">
-            <option value="small">Small (10–15 pax)</option>
-            <option value="medium">Medium (20–30 pax)</option>
-            <option value="large">Large (40–60 pax)</option>
-            <option value="xl">XL (80–100+ pax)</option>
-          </select>
-        </div>
-        <div class="estimator-field">
-          <label>&nbsp;</label>
-          <div class="estimator-result">
-            <div class="estimator-price" id="est-price">₦20,000</div>
-            <div class="estimator-price-label">Starting From</div>
-          </div>
-        </div>
-      </div>
-      <p class="estimator-note text-center">* Prices are estimates. Complex designs, sugar flowers, or fondant work may increase the final price. Contact us for an exact quote.</p>
-      <div class="estimator-cta text-center">
-        <a href="order.html" class="btn btn-primary">Place Your Order</a>
-        <a href="https://wa.me/2347047214558?text=Hi! I'd like a cake quote" class="btn btn-whatsapp" style="margin-left:0.75rem">💬 Chat on WhatsApp</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TESTIMONIALS ===== -->
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="section-header text-center reveal">
-      <span class="eyebrow">Client Love</span>
-      <h2 class="display-md">What Our Clients <span class="text-gold italic">Say</span></h2>
-      <div class="section-divider center"></div>
-    </div>
-
-    <div class="testimonials-track">
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-        <p class="testimonial-text">"The cake for my daughter's 10th birthday was absolutely stunning. Everyone at the party thought it came from a London bakery. The taste matched the beauty — incredible!"</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">A</div>
-          <div>
-            <div class="testimonial-name">Amaka Obi</div>
-            <div class="testimonial-event">Birthday Cake · Maitama, Abuja</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-        <p class="testimonial-text">"She made our 4-tier wedding cake and it was the centerpiece of the whole reception. Guests are still talking about it 3 months later. Professional, punctual and talented."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">F</div>
-          <div>
-            <div class="testimonial-name">Funmi & Tobi Adeyemi</div>
-            <div class="testimonial-event">Wedding Cake · Transcorp Hilton</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-        <p class="testimonial-text">"I ordered a dessert box for a corporate event and my CEO personally asked who made them. The branding, presentation and flavor were all top tier. Will be ordering monthly."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">C</div>
-          <div>
-            <div class="testimonial-name">Chioma Nwachukwu</div>
-            <div class="testimonial-event">Corporate Dessert Box · Wuse 2</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== INSTAGRAM FEED ===== -->
-<section class="instagram" id="instagram">
-  <div class="container">
-    <div class="section-header text-center reveal">
-      <span class="eyebrow">Follow Our Journey</span>
-      <h2 class="display-md">As Seen on <span class="text-gold italic">Instagram</span></h2>
-      <div class="section-divider center"></div>
-    </div>
-
-    <div class="instagram-grid reveal">
-      <div class="instagram-item">
-        <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=300&q=80" alt="Cake" loading="lazy" />
-        <div class="instagram-item-overlay">📷</div>
-      </div>
-      <div class="instagram-item">
-        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=300&q=80" alt="Cake" loading="lazy" />
-        <div class="instagram-item-overlay">📷</div>
-      </div>
-      <div class="instagram-item">
-        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&q=80" alt="Cake" loading="lazy" />
-        <div class="instagram-item-overlay">📷</div>
-      </div>
-      <div class="instagram-item">
-        <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=300&q=80" alt="Cake" loading="lazy" />
-        <div class="instagram-item-overlay">📷</div>
-      </div>
-      <div class="instagram-item">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=80" alt="Cake" loading="lazy" />
-        <div class="instagram-item-overlay">📷</div>
-      </div>
-      <div class="instagram-item">
-        <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=300&q=80" alt="Cake" loading="lazy" />
-        <div class="instagram-item-overlay">📷</div>
-      </div>
-    </div>
-
-    <a href="https://instagram.com/juicy__culinary" target="_blank" rel="noopener" class="instagram-handle reveal">
-      <span>📸</span> @juicy__culinary
+  <div class="mobile-menu-cta">
+    <a href="https://wa.me/2347047214558?text=Hi! I'd like to order a cake" target="_blank" rel="noopener" class="btn btn-wa" style="width:100%;justify-content:center;">
+      💬 WhatsApp Us
     </a>
   </div>
-</section>
+</nav>
 
-<!-- ===== CTA BANNER ===== -->
-<section class="cta-banner">
-  <div class="container">
-    <span class="eyebrow reveal">Ready to Create Something Beautiful?</span>
-    <h2 class="display-lg reveal reveal-delay-1">Your Dream Cake<br>Awaits You</h2>
-    <p class="body-lg reveal reveal-delay-2">
-      Place your order online or reach us directly on WhatsApp. We take orders for every occasion — birthdays, weddings, proposals, corporate events, and more.
-    </p>
-    <div class="cta-banner-actions reveal reveal-delay-3">
-      <a href="order.html" class="btn btn-primary">Start Your Order</a>
-      <a href="https://wa.me/2347047214558?text=Hello! I'd like to order a cake" target="_blank" class="btn btn-whatsapp">
-        💬 WhatsApp: +234 704 721 4558
-      </a>
+
+<!-- ====================================================
+     HERO
+     ==================================================== -->
+<section class="hero" id="home">
+
+  <div class="hero-photo-main">
+    <img
+      src="images/cake-butterfly.jpg"
+      alt="Elegant custom birthday cake with gold butterfly decorations and fresh flowers"
+      loading="eager"
+      fetchpriority="high"
+    >
+  </div>
+
+  <div class="hero-content">
+
+  
+    <div class="hero-accent-photo">
+      <img
+        src="images/cake-navy-60.jpg"
+        alt="Navy blue milestone birthday cake with gold details"
+        loading="eager"
+      >
     </div>
+
+    <div class="hero-text reveal">
+      <div class="hero-label">
+        <span class="t-label">Abuja's Premium Cake Studio</span>
+      </div>
+
+      <h1 class="hero-h1">
+        Every cake<br>tells your<br><em>story</em>
+      </h1>
+
+      <p class="hero-desc">
+        Handcrafted custom cakes for birthdays, weddings, and every celebration worth remembering. Designed for you, made from scratch.
+      </p>
+
+      <div class="hero-actions">
+        <a href="order.html" class="btn btn-primary">Order Your Cake</a>
+        <a href="gallery.html" class="btn btn-outline">View Gallery</a>
+      </div>
+
+      <div class="hero-stat">
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-label">Cakes Crafted</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">★ 5.0</div>
+          <div class="hero-stat-label">Average Rating</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">4+</div>
+          <div class="hero-stat-label">Years Experience</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-brand-name">Juicy Culinary</div>
-        <p class="footer-brand-desc">
-          New age baker where baking meets perfection ❤️<br>
-          Federal Capital Territory, Abuja.
-        </p>
-        <div class="footer-social">
-          <a href="https://instagram.com/juicy__culinary" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
-          <a href="https://wa.me/2347047214558" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
-          <a href="mailto:hello@juicyculinary.com" aria-label="Email">✉️</a>
+
+<!-- ====================================================
+     MARQUEE STRIP
+     ==================================================== -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Birthday Cakes</span>
+    <span class="marquee-item">Wedding Cakes</span>
+    <span class="marquee-item">Celebration Cakes</span>
+    <span class="marquee-item">Corporate Orders</span>
+    <span class="marquee-item">Cupcakes</span>
+    <span class="marquee-item">Dessert Boxes</span>
+    <span class="marquee-item">Custom Designs</span>
+    <span class="marquee-item">Delivered Across Abuja</span>
+    <span class="marquee-item">Birthday Cakes</span>
+    <span class="marquee-item">Wedding Cakes</span>
+    <span class="marquee-item">Celebration Cakes</span>
+    <span class="marquee-item">Corporate Orders</span>
+    <span class="marquee-item">Cupcakes</span>
+    <span class="marquee-item">Dessert Boxes</span>
+    <span class="marquee-item">Custom Designs</span>
+    <span class="marquee-item">Delivered Across Abuja</span>
+  </div>
+</div>
+
+
+<!-- ====================================================
+     EDITORIAL FEATURE
+     "New age baker" story section
+     ==================================================== -->
+<section class="editorial" id="story">
+
+
+  <div class="editorial-photo reveal">
+    <img
+      src="images/cake-pink-geode.jpg"
+      alt="Pink cake with gold leaf geode detail and fresh roses"
+      loading="lazy"
+    >
+  </div>
+
+  <div class="editorial-text reveal d1">
+    <div class="section-label">
+      <span class="t-label">New Age Baker</span>
+    </div>
+
+    <h2 class="t-heading">
+      Where baking meets perfection
+    </h2>
+
+    <p class="editorial-pull">
+      "I don't just make cakes — I craft edible memories."
+    </p>
+
+    <p class="editorial-body">
+      Based in the heart of Abuja, Juicy Culinary was built on a single belief: that every celebration deserves something extraordinary. From a first birthday to a golden anniversary, we pour creativity and care into every tier, every flower, every detail.
+    </p>
+
+    <p class="editorial-body">
+      We use premium ingredients  real Belgian chocolate, fresh flowers, imported fondant  because your guests deserve the best, and so do you.
+    </p>
+
+    <a href="about.html" class="btn btn-outline">Our Story →</a>
+  </div>
+
+</section>
+
+
+<!-- ====================================================
+     CATEGORIES
+     ==================================================== -->
+<section class="categories-section" id="categories">
+
+  <div class="categories-header">
+    <div>
+      <div class="section-label"><span class="t-label">What We Make</span></div>
+      <h2 class="t-heading reveal">Our Specialities</h2>
+    </div>
+    <a href="gallery.html" class="btn btn-outline reveal">View Full Gallery</a>
+  </div>
+
+  <div class="categories-grid">
+
+
+    <div class="cat-card" role="link" tabindex="0" onclick="window.location='gallery.html'">
+      <img src="images/cake-butterfly.jpg" alt="Birthday cake with butterfly decoration" loading="lazy">
+      <div class="cat-card-body">
+        <div class="cat-card-subtitle">From ₦20,000</div>
+        <div class="cat-card-name">Birthday<br>Cakes</div>
+        <span class="cat-card-cta">Explore →</span>
+      </div>
+    </div>
+
+    <div class="cat-card" role="link" tabindex="0" onclick="window.location='gallery.html'">
+    
+      <img src="images/cake-pink-geode.jpg" alt="Elegant wedding cake" loading="lazy">
+      <div class="cat-card-body">
+        <div class="cat-card-subtitle">From ₦80,000</div>
+        <div class="cat-card-name">Wedding<br>Cakes</div>
+        <span class="cat-card-cta">Explore →</span>
+      </div>
+    </div>
+
+    <div class="cat-card" role="link" tabindex="0" onclick="window.location='gallery.html'">
+      <img src="images/cake-navy-60.jpg" alt="Celebration milestone cake" loading="lazy">
+      <div class="cat-card-body">
+        <div class="cat-card-subtitle">From ₦25,000</div>
+        <div class="cat-card-name">Celebration<br>Cakes</div>
+        <span class="cat-card-cta">Explore →</span>
+      </div>
+    </div>
+
+    <div class="cat-card" role="link" tabindex="0" onclick="window.location='gallery.html'">
+      <img src="images/cake-green-ribbon.jpg" alt="Unique custom cake design" loading="lazy">
+      <div class="cat-card-body">
+        <div class="cat-card-subtitle">From ₦35,000</div>
+        <div class="cat-card-name">Custom<br>Designs</div>
+        <span class="cat-card-cta">Explore →</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ====================================================
+     WHY CHOOSE US
+     ==================================================== -->
+<section class="why-section" id="why-us">
+
+  <div class="why-header">
+    <div class="why-header-left">
+      <div class="section-label reveal"><span class="t-label">Why Juicy Culinary</span></div>
+      <h2 class="t-heading reveal d1">The difference is in every detail</h2>
+    </div>
+    <div class="why-header-right reveal d2">
+      We've spent years perfecting our craft so you don't have to worry about a thing. From your first WhatsApp message to the moment the cake arrives at your venue  every step is handled with care.
+    </div>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-item reveal">
+      <span class="why-icon">🎨</span>
+      <div class="why-title">100% Custom Designs</div>
+      <p class="why-desc">Every cake is built around your vision. Send us an inspiration photo or describe your dream  we bring it to life.</p>
+    </div>
+    <div class="why-item reveal d1">
+      <span class="why-icon">🌿</span>
+      <div class="why-title">Premium Ingredients</div>
+      <p class="why-desc">Real butter, Belgian chocolate, natural vanilla, and fresh flowers. We never cut corners on what goes into your cake.</p>
+    </div>
+    <div class="why-item reveal d2">
+      <span class="why-icon">🚚</span>
+      <div class="why-title">Reliable Delivery</div>
+      <p class="why-desc">We deliver across all of Abuja FCT in temperature-controlled packaging. Your cake arrives exactly as it left the studio.</p>
+    </div>
+    <div class="why-item reveal d3">
+      <span class="why-icon">💬</span>
+      <div class="why-title">Personal Communication</div>
+      <p class="why-desc">Direct WhatsApp access to your baker throughout the entire process. No chatbots, no delays, no confusion.</p>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ====================================================
+     PRICE ESTIMATOR
+     ==================================================== -->
+<section class="estimator-section" id="estimator">
+
+  <div class="section-label reveal"><span class="t-label">Instant Pricing</span></div>
+  <h2 class="t-heading reveal d1" style="margin-bottom:0.4rem;max-width:18ch">Get a price estimate in seconds</h2>
+  <p class="t-body-lg reveal d2" style="max-width:52ch">Choose your cake type and size below. Prices are starting points  final cost depends on design complexity and delivery zone.</p>
+
+  <div class="estimator-card reveal d2" data-estimator>
+    <div class="estimator-row">
+      <div class="est-field">
+        <label for="est-type-home">Cake Type</label>
+        <select id="est-type-home" data-est-type>
+          <option value="birthday">🎂 Birthday Cake</option>
+          <option value="wedding">💍 Wedding Cake</option>
+          <option value="celebration">🎉 Celebration Cake</option>
+          <option value="corporate">🏢 Corporate Cake</option>
+          <option value="cupcakes">🧁 Cupcakes (dozen)</option>
+          <option value="dessertbox">🍫 Dessert Box</option>
+        </select>
+      </div>
+      <div class="est-field">
+        <label for="est-size-home">Size / Servings</label>
+        <select id="est-size-home" data-est-size>
+          <option value="small">Small (10–15 pax)</option>
+          <option value="medium">Medium (20–30 pax)</option>
+          <option value="large">Large (40–60 pax)</option>
+          <option value="xl">XL (80–100+ pax)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="estimator-result">
+      <div>
+        <div class="est-price-label">Estimated Starting Price</div>
+        <div class="est-price" data-est-price>₦20,000</div>
+      </div>
+      <p class="est-price-note">
+        Complex sugar work, fresh flowers, and multi-tier designs may increase the final price. Contact us for a precise quote.
+      </p>
+    </div>
+
+    <div class="estimator-actions">
+      <a href="order.html" class="btn btn-primary">Place an Order</a>
+      <a href="https://wa.me/2347047214558?text=Hi! I'd like a quote for a cake" target="_blank" rel="noopener" class="btn btn-wa">💬 WhatsApp Quote</a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ====================================================
+     TESTIMONIALS
+     ==================================================== -->
+<section class="testimonials-section" id="testimonials">
+
+  <div class="testimonials-header">
+    <div>
+      <div class="section-label reveal"><span class="t-label">Client Love</span></div>
+      <h2 class="t-heading reveal d1">What people say</h2>
+    </div>
+    <a href="gallery.html" class="btn btn-outline reveal">See Our Work</a>
+  </div>
+
+  <div class="testimonials-grid">
+
+    <div class="testi-card reveal">
+      <span class="testi-stars">★★★★★</span>
+      <p class="testi-text">
+        "The cake for my daughter's birthday was absolutely stunning. Every guest at the party asked who made it. The taste matched the beauty  I've never had anything like it."
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar" aria-hidden="true">A</div>
+        <div>
+          <div class="testi-name">Amaka Obi</div>
+          <div class="testi-context">Birthday Cake · Maitama, Abuja</div>
         </div>
       </div>
+    </div>
 
-      <div>
-        <div class="footer-heading">Quick Links</div>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="order.html">Order a Cake</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="footer-heading">Services</div>
-        <ul class="footer-links">
-          <li><a href="gallery.html">Birthday Cakes</a></li>
-          <li><a href="gallery.html">Wedding Cakes</a></li>
-          <li><a href="gallery.html">Cupcakes</a></li>
-          <li><a href="gallery.html">Dessert Boxes</a></li>
-          <li><a href="gallery.html">Custom Cakes</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="footer-heading">Contact</div>
-        <ul class="footer-links">
-          <li><a href="https://wa.me/2347047214558">+234 704 721 4558</a></li>
-          <li><a href="https://instagram.com/juicy__culinary">@juicy__culinary</a></li>
-          <li><span style="color:rgba(255,255,255,0.5)">Abuja, FCT Nigeria</span></li>
-          <li><span style="color:rgba(255,255,255,0.5)">Mon–Sat: 9am – 7pm</span></li>
-        </ul>
+    <div class="testi-card reveal d1">
+      <span class="testi-stars">★★★★★</span>
+      <p class="testi-text">
+        "She made our wedding cake and it was the centerpiece of our entire reception. Three months later, people are still talking about it. Professional, punctual, absolutely talented."
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar" aria-hidden="true">F</div>
+        <div>
+          <div class="testi-name">Funmi &amp; Tobi Adeyemi</div>
+          <div class="testi-context">Wedding Cake · Transcorp Hilton, Abuja</div>
+        </div>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <span>© 2024 Juicy Culinary. All rights reserved.</span>
-      <span>Crafted with ❤️ in Abuja, Nigeria</span>
+    <div class="testi-card reveal d2">
+      <span class="testi-stars">★★★★★</span>
+      <p class="testi-text">
+        "Ordered a dessert box for a corporate event and my CEO personally asked who made them. The branding, presentation and flavor were all top tier. Will be ordering monthly."
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar" aria-hidden="true">C</div>
+        <div>
+          <div class="testi-name">Chioma Nwachukwu</div>
+          <div class="testi-context">Corporate Dessert Box · Wuse 2, Abuja</div>
+        </div>
+      </div>
     </div>
+
+  </div>
+</section>
+
+
+<!-- ====================================================
+     INSTAGRAM PREVIEW
+     ==================================================== -->
+<section class="instagram-section" id="instagram">
+
+  <div class="ig-header">
+    <h2 class="t-subheading reveal">From our <em style="font-style:italic;color:var(--purple)">Instagram</em></h2>
+    <a href="https://instagram.com/juicy__culinary" target="_blank" rel="noopener" class="ig-handle-link reveal d1">
+      📸 @juicy__culinary
+    </a>
+  </div>
+
+ 
+  <div class="ig-grid reveal d1">
+    <div class="ig-item" data-lb="images/cake-butterfly.jpg" data-lb-label="Birthday Cake" title="View photo">
+      <img src="images/cake-butterfly.jpg" alt="Birthday cake with gold butterflies" loading="lazy">
+      <div class="ig-item-overlay">📷</div>
+    </div>
+    <div class="ig-item" data-lb="images/cake-pink-geode.jpg" data-lb-label="Pink Geode Cake" title="View photo">
+      <img src="images/cake-pink-geode.jpg" alt="Pink cake with geode detail" loading="lazy">
+      <div class="ig-item-overlay">📷</div>
+    </div>
+    <div class="ig-item" data-lb="images/cake-navy-60.jpg" data-lb-label="Hello 60 Celebration Cake" title="View photo">
+      <img src="images/cake-navy-60.jpg" alt="Navy blue 60th birthday cake" loading="lazy">
+      <div class="ig-item-overlay">📷</div>
+    </div>
+    <div class="ig-item" data-lb="images/cake-green-ribbon.jpg" data-lb-label="Green Ribbon Cake" title="View photo">
+      <img src="images/cake-green-ribbon.jpg" alt="Green cake with black ribbon bows" loading="lazy">
+      <div class="ig-item-overlay">📷</div>
+    </div>
+    <div class="ig-item" data-lb="images/cake-butterfly.jpg" data-lb-label="Detail Shot" title="View photo">
+      <img src="images/cake-butterfly.jpg" alt="Cake detail" loading="lazy" style="object-position:center 60%">
+      <div class="ig-item-overlay">📷</div>
+    </div>
+    <div class="ig-item" data-lb="images/cake-pink-geode.jpg" data-lb-label="Detail Shot" title="View photo">
+      <img src="images/cake-pink-geode.jpg" alt="Cake detail" loading="lazy" style="object-position:center 80%">
+      <div class="ig-item-overlay">📷</div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ====================================================
+     CTA BANNER
+     ==================================================== -->
+<section class="cta-banner" id="order-cta">
+
+  <div class="reveal">
+    <div class="section-label" style="--rule-color:rgba(255,255,255,0.2)">
+      <span class="t-label" style="color:rgba(255,255,255,0.5)">Ready?</span>
+    </div>
+    <h2>
+      Your <em>dream cake</em><br>starts with a message
+    </h2>
+    <p>
+      Fill out our order form or send us a WhatsApp message with your date, occasion, and inspiration. We'll handle the rest.
+    </p>
+  </div>
+
+  <div class="cta-banner-actions reveal d1">
+    <a href="order.html" class="btn btn-primary">Start Your Order</a>
+    <a href="https://wa.me/2347047214558?text=Hello! I'd like to order a cake for my event." target="_blank" rel="noopener" class="btn btn-wa">
+      💬 +234 704 721 4558
+    </a>
+    <a href="gallery.html" class="btn btn-ghost-white">View Gallery First</a>
+  </div>
+
+</section>
+
+
+<!-- ====================================================
+     FOOTER
+     ==================================================== -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-main">
+
+    <div class="footer-brand">
+      <div class="footer-brand-name">Juicy Culinary</div>
+      <p class="footer-brand-desc">
+        New age baker where baking meets perfection.<br>
+        Federal Capital Territory, Abuja, Nigeria.
+      </p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/juicy__culinary" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">📸</a>
+        <a href="https://wa.me/2347047214558" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">💬</a>
+        <a href="mailto:hello@Juicyculinary@gmail.com" class="footer-social-link" aria-label="Email">✉️</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Pages</div>
+      <ul class="footer-col-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="order.html">Order a Cake</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Cakes</div>
+      <ul class="footer-col-links">
+        <li><a href="gallery.html">Birthday Cakes</a></li>
+        <li><a href="gallery.html">Wedding Cakes</a></li>
+        <li><a href="gallery.html">Celebration Cakes</a></li>
+        <li><a href="gallery.html">Custom Designs</a></li>
+        <li><a href="gallery.html">Cupcakes</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-col-links">
+        <li><a href="https://wa.me/2347047214558">+234 704 721 4558</a></li>
+        <li><a href="https://instagram.com/juicy__culinary">@juicy__culinary</a></li>
+        <li><span style="color:var(--ink-soft)">Abuja, FCT Nigeria</span></li>
+        <li><span style="color:var(--ink-soft)">Mon – Sat, 9am – 7pm</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2024 Juicy Culinary. All rights reserved.</span>
+    <span>Handcrafted in Abuja, Nigeria ❤️</span>
   </div>
 </footer>
 
-<!-- Back to Top -->
-<button class="back-to-top" aria-label="Back to top">↑</button>
+<!-- Lightbox -->
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" aria-label="Close lightbox">✕</button>
+  <button class="lb-nav-btn lb-prev" aria-label="Previous image">‹</button>
+  <img class="lightbox-img" src="" alt="">
+  <button class="lb-nav-btn lb-next" aria-label="Next image">›</button>
+  <div class="lb-caption"></div>
+</div>
+
+<!-- Back to top -->
+<button class="back-top" aria-label="Back to top">↑</button>
 
 <script src="js/script.js"></script>
 </body>

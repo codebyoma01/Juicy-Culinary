@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us — Juicy Culinary</title>
-  <meta name="description" content="Learn the story behind Juicy Culinary — Abuja's premium custom cake brand. Meet the baker and discover our mission." />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Juicy Culinary</title>
+  <meta name="description" content="The story behind Juicy Culinary — Abuja's premium custom cake studio. Meet the baker and discover our mission.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <nav class="nav">
   <a href="index.html" class="nav-logo">
-    <span class="nav-logo-name">Juicy Culinary</span>
-    <span class="nav-logo-tagline">Abuja · Since 2020</span>
+    <img src="images/logo-bg.jpg" alt="Juicy Culinary" class="nav-logo-img">
+    <div class="nav-logo-text">Juicy Culinary<span>Abuja, Nigeria</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="index.html" class="nav-link">Home</a></li>
@@ -22,239 +23,195 @@
     <li><a href="about.html" class="nav-link">About</a></li>
     <li><a href="contact.html" class="nav-link">Contact</a></li>
   </ul>
-  <div class="nav-actions">
+  <div class="nav-right">
     <button class="dark-toggle" aria-label="Toggle dark mode"></button>
-    <a href="order.html" class="btn btn-primary">Order Now</a>
-    <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <a href="order.html" class="btn btn-primary">Order a Cake</a>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
 <div class="mobile-overlay"></div>
-<div class="mobile-menu">
+<nav class="mobile-menu">
   <a href="index.html" class="mobile-menu-link">Home</a>
   <a href="gallery.html" class="mobile-menu-link">Gallery</a>
   <a href="order.html" class="mobile-menu-link">Order a Cake</a>
-  <a href="about.html" class="mobile-menu-link">About Us</a>
+  <a href="about.html" class="mobile-menu-link">About</a>
   <a href="contact.html" class="mobile-menu-link">Contact</a>
-  <a href="https://wa.me/2347047214558" class="btn btn-whatsapp" style="margin-top:1rem;">💬 WhatsApp Us</a>
+  <div class="mobile-menu-cta">
+    <a href="https://wa.me/2347047214558" target="_blank" class="btn btn-wa" style="width:100%;justify-content:center;">💬 WhatsApp Us</a>
+  </div>
+</nav>
+
+<!-- HERO SPLIT -->
+<section class="about-hero">
+
+  <div class="about-hero-photo">
+    <img src="images/cake-green-ribbon.jpg" alt="Juicy Culinary studio" loading="eager">
+  </div>
+
+  <div class="about-hero-text reveal">
+    <div class="section-label"><span class="t-label">Our Story</span></div>
+    <h1>
+      Baking meets<br><em>perfection</em>
+    </h1>
+    <p class="t-body-lg" style="margin-bottom:1.75rem">Juicy culinary is a unique brand where our sole focus is to use only the finest ingredients to curate and elevate your taste bud,
+       be it cakes or pastries
+    </p>
+    <a href="order.html" class="btn btn-primary">Order Your Cake</a>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stat-cell reveal">
+    <div class="stat-num">500+</div>
+    <div class="stat-label">Cakes Crafted</div>
+  </div>
+  <div class="stat-cell reveal d1">
+    <div class="stat-num">4+</div>
+    <div class="stat-label">Years of Artistry</div>
+  </div>
+  <div class="stat-cell reveal d2">
+    <div class="stat-num">★ 5.0</div>
+    <div class="stat-label">Average Rating</div>
+  </div>
+  <div class="stat-cell reveal d3">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Custom, Every Time</div>
+  </div>
 </div>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <span class="eyebrow reveal">Our Story</span>
-  <h1 class="display-lg reveal reveal-delay-1" style="margin-top:0.75rem">
-    Baking Meets<br><span class="text-gold italic">Perfection</span>
-  </h1>
-  <p class="body-lg reveal reveal-delay-2" style="max-width:55ch;margin:1rem auto 0">
-    A passion project born in Abuja that grew into one of the FCT's most trusted luxury cake brands.
-  </p>
-</section>
-
-<!-- BRAND STORY -->
+<!-- STORY SECTION -->
 <section class="about-story">
-  <div class="container">
-    <div class="about-story-grid">
-      <div class="reveal">
-        <img
-          src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80"
-          alt="Baker at work"
-          class="about-story-img"
-          loading="lazy"
-        />
-      </div>
 
-      <div class="reveal reveal-delay-1">
-        <span class="eyebrow" style="display:block;margin-bottom:0.75rem">How It Started</span>
-        <h2 class="display-md" style="margin-bottom:1.5rem">
-          A Kitchen, A Dream,<br><span class="text-gold italic">And Pure Dedication</span>
-        </h2>
-        <div class="section-divider" style="margin-bottom:2rem"></div>
+  <div class="about-story-photo reveal">
+    <img src="images/cake-butterfly.jpg" alt="Cake being decorated with fresh flowers and gold details" loading="lazy">
+  </div>
 
-        <p class="body-lg" style="margin-bottom:1.5rem">
-          Juicy Culinary was born from a simple belief — that every celebration deserves a cake that's as extraordinary as the moment itself. What started as late-night baking experiments in a home kitchen quickly became a word-of-mouth sensation across Abuja.
-        </p>
-        <p class="body-md" style="margin-bottom:1.5rem">
-          Today, Juicy Culinary stands at the intersection of artistry and flavor. We've served over 500 clients across the Federal Capital Territory — from intimate birthday dinners to grand wedding receptions at Abuja's finest venues.
-        </p>
+  <div class="about-story-text reveal d1">
+    <div class="section-label"><span class="t-label">How It Started</span></div>
+    <h2>A kitchen, a dream,<br>and pure dedication</h2>
 
-        <blockquote class="about-quote">
-          "I don't just bake cakes. I create edible memories that people talk about for years."
-        </blockquote>
+    <p class="t-body" style="margin-bottom:1rem">
+      What started as weekend baking experiments quickly became something people drove across Abuja for. Requests came in. Photos spread. The little home kitchen became a proper studio  and Juicy Culinary was born.
+    </p>
 
-        <p class="body-md">
-          Our signature style blends modern cake artistry with rich, indulgent flavors — using imported Belgian chocolate, real vanilla, and seasonal produce to ensure every bite is as beautiful as the presentation.
-        </p>
-      </div>
-    </div>
+    <blockquote class="about-quote">
+      "I don't just bake cakes. I create edible memories that people talk about for years."
+    </blockquote>
+
+    <p class="t-body">
+      Every cake is made from scratch using premium imported ingredients  real Belgian chocolate, fresh seasonal flowers, and natural flavours. No shortcuts. No premixes. Just real baking done with real care.
+    </p>
   </div>
 </section>
 
-<!-- STATS STRIP -->
-<section class="stats-strip">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-card reveal">
-        <div class="stat-number">500+</div>
-        <div class="stat-label">Cakes Delivered</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-1">
-        <div class="stat-number">4+</div>
-        <div class="stat-label">Years of Artistry</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-2">
-        <div class="stat-number">100%</div>
-        <div class="stat-label">Custom Designs</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-3">
-        <div class="stat-number">★ 5.0</div>
-        <div class="stat-label">Average Rating</div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- VALUES -->
+<section class="values-section">
+  <div class="section-label reveal"><span class="t-label">What We Stand For</span></div>
+  <h2 class="t-heading reveal d1" style="margin-top:0.5rem;margin-bottom:0">Our Values</h2>
 
-<!-- MISSION -->
-<section style="padding:var(--section-pad);background:var(--bg)">
-  <div class="container">
-    <div style="max-width:760px;margin:0 auto;text-align:center;">
-      <span class="eyebrow reveal" style="display:block;margin-bottom:0.75rem">Our Mission</span>
-      <h2 class="display-md reveal reveal-delay-1" style="margin-bottom:1.5rem">
-        To Make Every Celebration <span class="text-gold italic">Unforgettable</span>
-      </h2>
-      <div class="section-divider center reveal" style="margin-bottom:2rem"></div>
-      <p class="body-lg reveal reveal-delay-2" style="margin-bottom:1.5rem">
-        Our mission is to push the boundaries of what a cake can be — combining technical precision with creative artistry to produce luxury confections that look like sculptures and taste like heaven.
-      </p>
-      <p class="body-md reveal reveal-delay-3">
-        We believe luxury shouldn't come at the cost of warmth. Every order is handled personally, every client is treated like family, and every cake is made from scratch with ingredients we'd serve our own loved ones.
-      </p>
+  <div class="values-grid">
+    <div class="value-item reveal">
+      <div class="value-num">01</div>
+      <div class="value-title">Artistry</div>
+      <p class="value-desc">Every cake is designed by hand and built from scratch. No templates, no shortcuts, no two cakes alike.</p>
     </div>
-
-    <!-- Core values -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:4rem">
-      <div style="text-align:center;padding:2rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);" class="reveal">
-        <div style="font-size:2.5rem;margin-bottom:1rem">🎨</div>
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;margin-bottom:0.5rem">Artistry</h3>
-        <p class="body-md">Every cake is designed and crafted by hand — no shortcuts, no shortcuts ever.</p>
-      </div>
-      <div style="text-align:center;padding:2rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);" class="reveal reveal-delay-1">
-        <div style="font-size:2.5rem;margin-bottom:1rem">🌿</div>
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;margin-bottom:0.5rem">Quality</h3>
-        <p class="body-md">Premium ingredients, sourced responsibly, used generously in every recipe.</p>
-      </div>
-      <div style="text-align:center;padding:2rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);" class="reveal reveal-delay-2">
-        <div style="font-size:2.5rem;margin-bottom:1rem">❤️</div>
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;margin-bottom:0.5rem">Passion</h3>
-        <p class="body-md">Baking isn't just our business — it's what gets us up before sunrise every morning.</p>
-      </div>
-      <div style="text-align:center;padding:2rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);" class="reveal reveal-delay-3">
-        <div style="font-size:2.5rem;margin-bottom:1rem">🤝</div>
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;margin-bottom:0.5rem">Trust</h3>
-        <p class="body-md">Transparent pricing, honest timelines, and personal communication from start to finish.</p>
-      </div>
+    <div class="value-item reveal d1">
+      <div class="value-num">02</div>
+      <div class="value-title">Quality</div>
+      <p class="value-desc">Premium ingredients sourced responsibly. Belgian chocolate, real butter, natural vanilla  because your guests deserve the best.</p>
+    </div>
+    <div class="value-item reveal d2">
+      <div class="value-num">03</div>
+      <div class="value-title">Honesty</div>
+      <p class="value-desc">Transparent pricing, realistic timelines, and direct communication. We tell you what's possible and we deliver exactly that.</p>
+    </div>
+    <div class="value-item reveal d3">
+      <div class="value-num">04</div>
+      <div class="value-title">Heart</div>
+      <p class="value-desc">Baking is personal. We treat every order like it's for someone we love  because for your client, it always is.</p>
     </div>
   </div>
 </section>
 
 <!-- MEET THE BAKER -->
-<section class="baker-section" style="background:linear-gradient(135deg,var(--blush-light) 0%,var(--bg) 60%);">
-  <div class="container">
-    <div class="section-header text-center reveal">
-      <span class="eyebrow">The Talent Behind the Cake</span>
-      <h2 class="display-md" style="margin-top:0.75rem">Meet the <span class="text-gold italic">Baker</span></h2>
-      <div class="section-divider center"></div>
-    </div>
+<section class="baker-section">
 
-    <div class="baker-card reveal reveal-delay-1">
-      <img
-        src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80"
-        alt="Head Baker at Juicy Culinary"
-        class="baker-img"
-        loading="lazy"
-      />
-      <div>
-        <div class="baker-name">Chef JC</div>
-        <div class="baker-title">Founder & Head Baker · Juicy Culinary</div>
-        <p class="baker-bio">
-          With over 4 years of dedicated cake artistry experience, Chef JC has trained under some of Nigeria's top pastry professionals and developed a signature style that blends global trends with distinctly Nigerian aesthetics.
-        </p>
-        <p class="baker-bio" style="margin-top:1rem">
-          "I believe every person deserves a cake that tells their story. When a client sends me a photo of their guests gathered around one of my cakes — that's what drives me. That moment is my favourite part of this entire journey."
-        </p>
-        <div style="display:flex;gap:0.75rem;margin-top:1.5rem;flex-wrap:wrap">
-          <a href="https://instagram.com/juicy__culinary" target="_blank" class="btn btn-outline" style="font-size:0.75rem;padding:0.6rem 1.2rem">📸 @juicy__culinary</a>
-          <a href="https://wa.me/2347047214558" target="_blank" class="btn btn-whatsapp" style="font-size:0.75rem;padding:0.6rem 1.2rem">💬 Send a Message</a>
-        </div>
-      </div>
+  <div class="baker-photo">
+    <img src="images/JC.jpg" alt="Chef JC — Founder of Juicy Culinary" loading="lazy">
+  </div>
+
+  <div class="baker-text reveal">
+    <div class="section-label"><span class="t-label">Meet the Baker</span></div>
+    <h2>Chef JC</h2>
+    <p class="t-label" style="color:var(--purple);margin-bottom:1.5rem;letter-spacing:0.15em">Founder & Head Baker</p>
+
+    <p class="baker-bio">
+      With over four years of hands-on experience and training from some of Nigeria's top pastry professionals, Chef JC has developed a signature style that blends global cake trends with distinctly Nigerian creativity and warmth.
+    </p>
+    <p class="baker-bio">
+      "What drives me is that moment when a client sends me a photo of their guests gathered around one of my cakes  that look of joy on their faces. That's why I do this."
+    </p>
+
+    <div style="display:flex;gap:0.75rem;margin-top:1.75rem;flex-wrap:wrap">
+      <a href="https://instagram.com/juicy__culinary" target="_blank" rel="noopener" class="btn btn-outline">📸 @juicy__culinary</a>
+      <a href="https://wa.me/2347047214558" target="_blank" rel="noopener" class="btn btn-wa">💬 Say Hello</a>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-banner">
-  <div class="container">
-    <span class="eyebrow">Ready to Order?</span>
-    <h2 class="display-lg" style="color:white;margin:0.75rem 0 1.25rem">
-      Let's Bake Your <span style="color:var(--gold-light);font-style:italic">Story</span>
-    </h2>
-    <p class="body-lg" style="color:rgba(255,255,255,0.7);max-width:50ch;margin:0 auto 2.5rem">
-      Your celebration is one of a kind. Your cake should be too.
-    </p>
-    <div class="cta-banner-actions">
-      <a href="order.html" class="btn btn-primary">Order Your Cake</a>
-      <a href="gallery.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:white">View Our Work</a>
+  <div class="reveal">
+    <div class="section-label" style="--rule-color:rgba(255,255,255,0.2)">
+      <span class="t-label" style="color:rgba(255,255,255,0.5)">Ready?</span>
     </div>
+    <h2>Let's bake<br>your <em>story</em></h2>
+    <p>Your celebration is one of a kind. Your cake should be too.</p>
+  </div>
+  <div class="cta-banner-actions reveal d1">
+    <a href="order.html" class="btn btn-primary">Order Your Cake</a>
+    <a href="gallery.html" class="btn btn-ghost-white">View Our Work</a>
   </div>
 </section>
 
-<!-- Footer -->
 <footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-brand-name">Juicy Culinary</div>
-        <p class="footer-brand-desc">New age baker where baking meets perfection ❤️<br>Federal Capital Territory, Abuja.</p>
-        <div class="footer-social">
-          <a href="https://instagram.com/juicy__culinary" target="_blank" aria-label="Instagram">📸</a>
-          <a href="https://wa.me/2347047214558" target="_blank" aria-label="WhatsApp">💬</a>
-          <a href="mailto:hello@juicyculinary.com" aria-label="Email">✉️</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-heading">Quick Links</div>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="order.html">Order a Cake</a></li>
-          <li><a href="about.html">About Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-heading">Services</div>
-        <ul class="footer-links">
-          <li><a href="gallery.html">Birthday Cakes</a></li>
-          <li><a href="gallery.html">Wedding Cakes</a></li>
-          <li><a href="gallery.html">Cupcakes</a></li>
-          <li><a href="gallery.html">Dessert Boxes</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-heading">Contact</div>
-        <ul class="footer-links">
-          <li><a href="https://wa.me/2347047214558">+234 704 721 4558</a></li>
-          <li><a href="https://instagram.com/juicy__culinary">@juicy__culinary</a></li>
-          <li><span style="color:rgba(255,255,255,0.5)">Abuja, FCT Nigeria</span></li>
-        </ul>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Juicy Culinary</div>
+      <p class="footer-brand-desc">New age baker where baking meets perfection.<br>Federal Capital Territory, Abuja, Nigeria.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/juicy__culinary" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">📸</a>
+        <a href="https://wa.me/2347047214558" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">💬</a>
+        <a href="mailto:hello@Juicyculinary@gmail.com" class="footer-social-link" aria-label="Email">✉️</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2024 Juicy Culinary. All rights reserved.</span>
-      <span>Crafted with ❤️ in Abuja, Nigeria</span>
+    <div>
+      <div class="footer-col-title">Pages</div>
+      <ul class="footer-col-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="order.html">Order a Cake</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-col-links">
+        <li><a href="https://wa.me/2347047214558">+234 704 721 4558</a></li>
+        <li><a href="https://instagram.com/juicy__culinary">@juicy__culinary</a></li>
+        <li><span style="color:var(--ink-soft)">Abuja, FCT Nigeria</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Juicy Culinary. All rights reserved.</span>
+    <span>Handcrafted in Abuja, Nigeria ❤️</span>
   </div>
 </footer>
 
-<button class="back-to-top" aria-label="Back to top">↑</button>
+<button class="back-top" aria-label="Back to top">↑</button>
 <script src="js/script.js"></script>
 </body>
 </html>
