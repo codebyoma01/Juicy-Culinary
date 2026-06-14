@@ -33,14 +33,12 @@ function initNav() {
   const nav = document.querySelector('.nav');
   if (!nav) return;
 
-  // Scroll state
   const onScroll = () => {
     nav.classList.toggle('scrolled', window.scrollY > 50);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Mark active link
   const current = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(link => {
     const href = link.getAttribute('href');
@@ -89,9 +87,13 @@ function initMobileMenu() {
 
 /* ============================================================
    SCROLL REVEAL
+   Handles .reveal (fade up), .reveal-left and .reveal-right
+   (slide-in animations) — used for Gallery slide-ins and
+   About / Services / Contact fade-ups.
    ============================================================ */
 function initScrollReveal() {
-  const els = document.querySelectorAll('.reveal');
+  const selectors = '.reveal, .reveal-left, .reveal-right';
+  const els = document.querySelectorAll(selectors);
   if (!els.length) return;
 
   const io = new IntersectionObserver((entries) => {
@@ -101,7 +103,7 @@ function initScrollReveal() {
         io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
   els.forEach(el => io.observe(el));
 }
@@ -124,14 +126,13 @@ function initBackTop() {
 
 /* ============================================================
    PRICE ESTIMATOR
+   Based on the Cake Menu & Pricelist:
+   Flavour -> Size (inches) -> Layers -> Price
    ============================================================ */
 const PRICE_TABLE = {
-  birthday:    { small: 20000,  medium: 35000,  large: 55000,  xl: 80000  },
-  wedding:     { small: 80000,  medium: 130000, large: 200000, xl: 280000 },
-  celebration: { small: 25000,  medium: 45000,  large: 70000,  xl: 100000 },
-  corporate:   { small: 35000,  medium: 60000,  large: 90000,  xl: 140000 },
-  cupcakes:    { small: 8000,   medium: 15000,  large: 28000,  xl: 45000  },
-  dessertbox:  { small: 15000,  medium: 28000,  large: 45000,  xl: 65000  },
+  vanilla:    { 6: { 1: 15000, 2: 25000 }, 8: { 1: 25000, 2: 35000 }, 10: { 1: 40000, 2: 60000 } },
+  redvelvet:  { 6: { 1: 20000, 2: 30000 }, 8: { 1: 35000, 2: 45000 }, 10: { 1: 45000, 2: 65000 } },
+  chocolate:  { 6: { 1: 23000, 2: 33000 }, 8: { 1: 38000, 2: 48000 }, 10: { 1: 48000, 2: 68000 } },
 };
 
 function fmtNaira(n) {
@@ -139,17 +140,18 @@ function fmtNaira(n) {
 }
 
 function initEstimator() {
-  // Runs for both homepage estimator and order page sidebar estimator
   document.querySelectorAll('[data-estimator]').forEach(wrapper => {
-    const typeEl  = wrapper.querySelector('[data-est-type]');
-    const sizeEl  = wrapper.querySelector('[data-est-size]');
-    const priceEl = wrapper.querySelector('[data-est-price]');
-    if (!typeEl || !sizeEl || !priceEl) return;
+    const flavourEl = wrapper.querySelector('[data-est-flavour]');
+    const sizeEl    = wrapper.querySelector('[data-est-size]');
+    const layersEl  = wrapper.querySelector('[data-est-layers]');
+    const priceEl   = wrapper.querySelector('[data-est-price]');
+    if (!flavourEl || !sizeEl || !layersEl || !priceEl) return;
 
     const update = () => {
-      const type = typeEl.value;
+      const flavour = flavourEl.value;
       const size = sizeEl.value;
-      const price = PRICE_TABLE[type]?.[size];
+      const layers = layersEl.value;
+      const price = PRICE_TABLE[flavour]?.[size]?.[layers];
       if (!price) return;
 
       priceEl.style.opacity = '0';
@@ -163,8 +165,9 @@ function initEstimator() {
     };
 
     priceEl.style.transition = 'opacity 0.25s, transform 0.25s';
-    typeEl.addEventListener('change', update);
+    flavourEl.addEventListener('change', update);
     sizeEl.addEventListener('change', update);
+    layersEl.addEventListener('change', update);
     update();
   });
 }
@@ -216,7 +219,6 @@ function initGalleryFilter() {
     });
   });
 
-  // Init count
   if (countEl) countEl.textContent = items.length + ' pieces';
 }
 
@@ -273,7 +275,6 @@ function initLightbox() {
 
   imgEl.style.transition = 'opacity 0.15s';
 
-  // Collect all gallery items
   document.querySelectorAll('[data-lb]').forEach((el, i) => {
     items.push({
       src:   el.getAttribute('data-lb'),
@@ -325,7 +326,6 @@ function initForms() {
   document.querySelectorAll('form[data-validate]').forEach(form => {
     const fields = form.querySelectorAll('input[required], select[required], textarea[required]');
 
-    // Live validation on blur
     fields.forEach(f => {
       f.addEventListener('blur', () => validateField(f));
       f.addEventListener('input', () => {
@@ -348,7 +348,6 @@ function initForms() {
         }
         form.reset();
       } else {
-        // Scroll to first error
         const firstErr = form.querySelector('.form-control.error');
         firstErr?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         firstErr?.focus();
@@ -368,7 +367,7 @@ function initFileUpload() {
 
     const setFile = (file) => {
       if (file && display) {
-        display.textContent = `✓ ${file.name}`;
+        display.textContent = `Selected: ${file.name}`;
         display.style.display = 'block';
       }
     };
@@ -387,7 +386,6 @@ function initFileUpload() {
       zone.classList.remove('dragover');
       const file = e.dataTransfer.files[0];
       if (file) {
-        // Transfer to input
         const dt = new DataTransfer();
         dt.items.add(file);
         input.files = dt.files;
@@ -424,17 +422,6 @@ function initOrderSteps() {
 }
 
 /* ============================================================
-   MARQUEE — duplicate for seamless loop
-   ============================================================ */
-function initMarquee() {
-  const tracks = document.querySelectorAll('.marquee-track');
-  tracks.forEach(track => {
-    // Duplicate content for seamless loop
-    track.innerHTML += track.innerHTML;
-  });
-}
-
-/* ============================================================
    SMOOTH SCROLL for anchor links
    ============================================================ */
 function initSmoothScroll() {
@@ -464,6 +451,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initForms();
   initFileUpload();
   initOrderSteps();
-  initMarquee();
   initSmoothScroll();
 });

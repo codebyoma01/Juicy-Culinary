@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order a Cake — Juicy Culinary</title>
   <meta name="description" content="Order a custom cake from Juicy Culinary. Fill in your details and we'll be in touch within 24 hours.">
+  <link rel="icon" type="image/jpeg" href="images/logo-bg.jpg">
+  <link rel="apple-touch-icon" href="images/logo-bg.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -37,7 +40,9 @@
   <a href="about.html" class="mobile-menu-link">About</a>
   <a href="contact.html" class="mobile-menu-link">Contact</a>
   <div class="mobile-menu-cta">
-    <a href="https://wa.me/2347047214558" target="_blank" class="btn btn-wa" style="width:100%;justify-content:center;">💬 WhatsApp Us</a>
+    <a href="https://wa.me/2347047214558" target="_blank" class="btn btn-wa" style="width:100%;justify-content:center;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
   </div>
 </nav>
 
@@ -47,18 +52,17 @@
     <div class="section-label reveal"><span class="t-label">Place Your Order</span></div>
     <h1 class="t-display reveal d1">Order<br><em style="font-style:italic;color:var(--purple)">Your Cake</em></h1>
   </div>
-  <div class="page-banner-right reveal d2">
+  <div class="page-banner-right reveal fade-up d2">
     <p class="t-body-lg">Fill in the form and we'll confirm your order within 24 hours. For urgent orders, WhatsApp us directly.</p>
-    <a href="https://wa.me/2347047214558?text=Hi! I need to place an urgent cake order" target="_blank" class="btn btn-wa" style="margin-top:1.25rem;display:inline-flex;">💬 Urgent? WhatsApp Now</a>
+    <a href="https://wa.me/2347047214558?text=Hi! I need to place an urgent cake order" target="_blank" class="btn btn-wa" style="margin-top:1.25rem;display:inline-flex;">
+      <i class="fa-brands fa-whatsapp"></i> Urgent? WhatsApp Now
+    </a>
   </div>
 </section>
 
 <!-- ORDER LAYOUT -->
 <div class="order-layout">
-
-  <!-- MAIN FORM -->
   <div class="order-main">
-
     <!-- Progress steps -->
     <div class="order-steps" role="list" aria-label="Order progress">
       <div class="order-step active" role="listitem" data-step="1">
@@ -83,7 +87,6 @@
     </div>
 
     <form data-validate id="order-form" novalidate>
-
       <!-- SECTION 1: Contact -->
       <div class="form-section" data-step="1">
         <div class="form-section-title">Your Details</div>
@@ -121,15 +124,15 @@
             <label class="form-label" for="o-type">Cake Type <span aria-hidden="true">*</span></label>
             <select class="form-control" id="o-type" name="cake_type" required>
               <option value="">Select type…</option>
-              <option value="birthday">🎂 Birthday Cake</option>
-              <option value="wedding">💍 Wedding Cake</option>
-              <option value="celebration">🎉 Celebration Cake</option>
-              <option value="anniversary">💕 Anniversary Cake</option>
-              <option value="babyshower">🍼 Baby Shower Cake</option>
-              <option value="corporate">🏢 Corporate Cake</option>
-              <option value="cupcakes">🧁 Cupcakes</option>
-              <option value="dessertbox">🍫 Dessert Box</option>
-              <option value="custom">✨ Custom / Other</option>
+              <option value="birthday">Birthday Cake</option>
+              <option value="wedding">Wedding Cake</option>
+              <option value="celebration">Celebration Cake</option>
+              <option value="anniversary">Anniversary Cake</option>
+              <option value="babyshower">Baby Shower Cake</option>
+              <option value="corporate">Corporate Cake</option>
+              <option value="cupcakes">Cupcakes</option>
+              <option value="dessertbox">Dessert Box</option>
+              <option value="custom">Custom / Other</option>
             </select>
             <span class="form-error" role="alert"></span>
           </div>
@@ -157,7 +160,7 @@
               <option value="strawberry">Strawberry</option>
               <option value="caramel">Salted Caramel</option>
               <option value="marble">Marble (Choc + Vanilla)</option>
-              <option value="other">Other  describe in notes</option>
+              <option value="other">Other — describe in notes</option>
             </select>
             <span class="form-error" role="alert"></span>
           </div>
@@ -193,15 +196,9 @@
         <div class="form-row single">
           <div class="form-group">
             <label class="form-label">Inspiration Photo (optional)</label>
-            <!--
-              ── FILE UPLOAD ──────────────────────────────────────
-              Customers upload a reference photo here.
-              Accepted: JPG, PNG, WEBP — max 10MB
-              ─────────────────────────────────────────────────────
-            -->
             <div class="file-drop" role="button" tabindex="0" aria-label="Upload inspiration image">
               <input type="file" accept="image/*" name="inspiration" aria-label="Upload inspiration image">
-              <span class="file-drop-icon">🖼️</span>
+              <span class="file-drop-icon"><i class="fa-solid fa-image" style="color:#8B5CF6;font-size:2rem"></i></span>
               <p class="file-drop-text">
                 <strong>Click to upload</strong> or drag & drop<br>
                 <span class="t-small">JPG, PNG or WEBP · Max 10MB</span>
@@ -220,80 +217,79 @@
         </p>
         <div class="form-submit">
           <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1rem 2rem;font-size:0.82rem;">
-            Submit Order Request →
+            Submit Order Request <i class="fa-regular fa-arrow-right" style="margin-left:0.3rem"></i>
           </button>
           <p class="t-small" style="margin-top:0.75rem;text-align:center">
             Or reach us directly: <a href="https://wa.me/2347047214558" target="_blank" style="color:var(--purple);font-weight:600;">+234 704 721 4558</a>
           </p>
         </div>
       </div>
-
     </form>
   </div>
 
   <!-- SIDEBAR -->
   <div class="order-sidebar">
-
-    <!-- Price estimator -->
     <div class="sidebar-block" data-estimator>
       <div class="sidebar-block-head">Estimated Price</div>
       <div class="sidebar-block-body">
         <div class="sidebar-price-from">Starting from</div>
-        <div class="sidebar-price-big" data-est-price>₦20,000</div>
-        <p class="sidebar-note">Changes as you select type and size</p>
-
+        <div class="sidebar-price-big" data-est-price>₦15,000</div>
+        <p class="sidebar-note">Changes as you select flavour, size, and layers</p>
         <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem">
           <div style="display:flex;flex-direction:column;gap:0.4rem">
-            <label style="font-size:0.62rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft)">Type</label>
-            <select data-est-type style="padding:0.7rem 0.9rem;border:1.5px solid var(--border);border-radius:3px;background:var(--cream);color:var(--ink);font-size:0.85rem;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%237C3AED%22 stroke-width=%222%22%3E%3Cpolyline points=%226 9 12 15 18 9%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 0.7rem center;cursor:pointer;width:100%">
-              <option value="birthday">Birthday Cake</option>
-              <option value="wedding">Wedding Cake</option>
-              <option value="celebration">Celebration Cake</option>
-              <option value="corporate">Corporate Cake</option>
-              <option value="cupcakes">Cupcakes</option>
-              <option value="dessertbox">Dessert Box</option>
+            <label style="font-size:0.62rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft)">Flavour</label>
+            <select data-est-flavour style="padding:0.7rem 0.9rem;border:1.5px solid var(--border);border-radius:3px;background:var(--cream);color:var(--ink);font-size:0.85rem;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%237C3AED%22 stroke-width=%222%22%3E%3Cpolyline points=%226 9 12 15 18 9%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 0.7rem center;cursor:pointer;width:100%">
+              <option value="vanilla">Vanilla Cake</option>
+              <option value="redvelvet">Red Velvet Cake</option>
+              <option value="chocolate">Chocolate Cake</option>
             </select>
           </div>
           <div style="display:flex;flex-direction:column;gap:0.4rem">
             <label style="font-size:0.62rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft)">Size</label>
             <select data-est-size style="padding:0.7rem 0.9rem;border:1.5px solid var(--border);border-radius:3px;background:var(--cream);color:var(--ink);font-size:0.85rem;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%237C3AED%22 stroke-width=%222%22%3E%3Cpolyline points=%226 9 12 15 18 9%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 0.7rem center;cursor:pointer;width:100%">
-              <option value="small">Small (10–15 pax)</option>
-              <option value="medium">Medium (20–30 pax)</option>
-              <option value="large">Large (40–60 pax)</option>
-              <option value="xl">XL (80–100+ pax)</option>
+              <option value="6">6 inch</option>
+              <option value="8">8 inch</option>
+              <option value="10">10 inch</option>
+            </select>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.4rem">
+            <label style="font-size:0.62rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft)">Layers</label>
+            <select data-est-layers style="padding:0.7rem 0.9rem;border:1.5px solid var(--border);border-radius:3px;background:var(--cream);color:var(--ink);font-size:0.85rem;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%237C3AED%22 stroke-width=%222%22%3E%3Cpolyline points=%226 9 12 15 18 9%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 0.7rem center;cursor:pointer;width:100%">
+              <option value="1">1 Layer</option>
+              <option value="2">2 Layers</option>
             </select>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Good to know -->
+
     <div class="sidebar-block">
       <div class="sidebar-block-head">Good to Know</div>
       <div class="sidebar-block-body">
         <div class="sidebar-info-item">
-          <div class="sidebar-info-icon">⏰</div>
+          <div class="sidebar-info-icon"><i class="fa-regular fa-clock" style="color:#8B5CF6"></i></div>
           <div class="sidebar-info-text">
             <strong>Lead Time</strong>
             Min 5–7 days for standard orders. Wedding cakes need 3+ weeks.
           </div>
         </div>
         <div class="sidebar-info-item">
-          <div class="sidebar-info-icon">💳</div>
+          <div class="sidebar-info-icon"><i class="fa-solid fa-credit-card" style="color:#8B5CF6"></i></div>
           <div class="sidebar-info-text">
             <strong>Payment</strong>
             50% deposit secures your date. Balance due on delivery.
           </div>
         </div>
         <div class="sidebar-info-item">
-          <div class="sidebar-info-icon">🚚</div>
+          <div class="sidebar-info-icon"><i class="fa-solid fa-truck" style="color:#8B5CF6"></i></div>
           <div class="sidebar-info-text">
             <strong>Delivery</strong>
             We deliver across Abuja FCT. Fee based on location.
           </div>
         </div>
         <div class="sidebar-info-item">
-          <div class="sidebar-info-icon">📸</div>
+          <div class="sidebar-info-icon"><i class="fa-solid fa-image" style="color:#8B5CF6"></i></div>
           <div class="sidebar-info-text">
             <strong>Inspiration</strong>
             Share a reference photo and we'll match the vibe.
@@ -303,16 +299,15 @@
     </div>
 
     <a href="https://wa.me/2347047214558?text=Hi! I want to discuss a cake order" target="_blank" rel="noopener" class="btn btn-wa" style="width:100%;justify-content:center;">
-      💬 Prefer to Chat? WhatsApp
+      <i class="fa-brands fa-whatsapp"></i> Prefer to Chat? WhatsApp
     </a>
-
   </div>
 </div>
 
 <!-- Success Modal -->
 <div class="modal-overlay" role="dialog" aria-modal="true" aria-label="Order submitted">
   <div class="modal-card">
-    <div class="modal-icon">🎂</div>
+    <div class="modal-icon"><i class="fa-solid fa-gift" style="color:#8B5CF6;font-size:2.5rem"></i></div>
     <h2 class="modal-title">Order Received!</h2>
     <p class="modal-body">Thank you! We'll contact you via WhatsApp or email within 24 hours to confirm your cake details and arrange your deposit.</p>
     <button class="btn btn-primary modal-close-btn" style="width:100%;justify-content:center;">Perfect, Thank You!</button>
@@ -325,11 +320,15 @@
       <div class="footer-brand-name">Juicy Culinary</div>
       <p class="footer-brand-desc">New age baker where baking meets perfection.<br>Federal Capital Territory, Abuja, Nigeria.</p>
       <div class="footer-socials">
-        <a href="https://instagram.com/juicy__culinary" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">📸</a>
-        
-        <a href="https://wa.me/2347047214558" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">💬</a>
-        
-        <a href="mailto:juicyculinary@gmail.com" class="footer-social-link" aria-label="Email">✉️</a>
+        <a href="https://instagram.com/juicy__culinary" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/2347047214558" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="mailto:Juicyculinary@gmail.com" class="footer-social-link" aria-label="Email">
+          <i class="fa-regular fa-envelope"></i>
+        </a>
       </div>
     </div>
     <div>
@@ -346,6 +345,7 @@
       <ul class="footer-col-links">
         <li><a href="https://wa.me/2347047214558">+234 704 721 4558</a></li>
         <li><a href="https://instagram.com/juicy__culinary">@juicy__culinary</a></li>
+        <li><a href="mailto:Juicyculinary@gmail.com">Juicyculinary@gmail.com</a></li>
         <li><span style="color:var(--ink-soft)">Abuja, FCT Nigeria</span></li>
         <li><span style="color:var(--ink-soft)">Mon – Sat, 9am – 7pm</span></li>
       </ul>
@@ -353,11 +353,11 @@
   </div>
   <div class="footer-bottom">
     <span>© 2024 Juicy Culinary. All rights reserved.</span>
-    <span>Handcrafted in Abuja, Nigeria ❤️</span>
+    <span>Handcrafted in Abuja, Nigeria <i class="fa-solid fa-heart" style="color:#8B5CF6;font-size:0.75rem"></i></span>
   </div>
 </footer>
 
-<button class="back-top" aria-label="Back to top">↑</button>
+<button class="back-top" aria-label="Back to top"><i class="fa-regular fa-chevron-up"></i></button>
 <script src="js/script.js"></script>
 </body>
 </html>
